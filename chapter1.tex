@@ -1,0 +1,114 @@
+\chapter{Review and First Order PDEs}
+
+\section{Introduction}
+Contrary to ordinary differential equations, or ODEs, the \vocab{partial differential equation}, or PDE, is an equation of a multivariable unknown function. The set of solutions forms a set of surfaces, unlike the set of curves that is formed from the solutions to ordinary differential equations. 
+
+Just like ordinary differential equations, partial differential equations have particular solutions. 
+\begin{definition}{}{}
+An \vocab{initial condition} is a condition, such as $u(x,0)$, where the value of the variable is set at a specific value. Contrasting this is the \vocab{boundary condition} where we specify the value of the solution for a fixed spatial variable, such as $u(0,t) = \cos{t}$. 
+\end{definition}
+
+\section{Vector Calculus}
+Recall the vector field:
+\begin{definition}{}{}
+A \vocab{vector field} $\mathbf{F}$ in $\RR^2$ takes a point $(x,y)$ and puts it to a vector $\mathbf{F}(x,y)$ in $\RR^2$.
+\end{definition}
+
+We can think of the vector field as parameterized by two scalar functions, each acting on $x$ and $y$. There are two familiar functions of the vector field: 
+\begin{itemize}
+\item The \vocab{gradient} of a function $\mathbf{F}$ at a point is 
+\[ \nabla f = \begin{pmatrix} f_x \\ f_y \end{pmatrix}. \] 
+We can quickly generate a vector field from a function by the gradient. Said vector field is said to be \vocab{conservative}: $\mathbf{F} = \nabla f$ for some function $f$. 
+\item The \vocab{divergence} of a vector field $\nabla \cdot \mathbf{F}$, where 
+\[ \mathbf{F} = \begin{pmatrix} F_1 \\ F_2 \end{pmatrix} \] is 
+\[ \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y}. \] 
+\end{itemize}
+
+Combining these opeations yields a \emph{scalar} function: 
+\begin{definition}{Laplacian}{}
+The \vocab{laplacian} of a function $f$ is equivalent to $\nabla^2 f$, or the divergence of the gradient of $f$. We can express it as 
+\[ \nabla^2 f = f_{xx} + f_{yy}. \] We also have the notation $\Delta f$. 
+
+\end{definition}
+
+If $\mathbf{F} \in \RR^3$, then an additional operation, the \vocab{curl} exists, and is defined as 
+\[ \curl{\mathbf{F}} = \nabla \times \mathbf{F} = \left | \begin{bmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ F_1 & F_2 & F_3 \end{bmatrix} \right | . \] 
+
+In higher dimensions, recall that the surface, line, and volume integrals exist in place of the standard integral. We may integrate over both scalar functions and vector fields, and the surface integral of a vector field is known as a \vocab{flux integral}. 
+
+We also have the following important theorems:
+\begin{theorem}{The Divergence Theorem}{}
+Let $D \subset \RR^2$ be a smooth domain with a positively oriented boundary $\partial D$ and let $\mathbf{F}$ be a smooth vector field. Then 
+\[ \iint_D \nabla \cdot D \diff A = \int_{\partial D} \mathbf{F} \cdot \mathbf{n} \diff s. \]
+\end{theorem}
+This theorem is also known as \vocab{Gauss' Theorem}. In three dimensions, the left and right integrals are a volume and surface integral, respectively. 
+
+\begin{theorem}{Stoke's Theorem}{}
+Let $\mathbf{F}$ be a smooth vector field and $\mathcal S$ be a smooth surface in $\RR^3$ with bounding curve $C$. Then 
+\[ \iint_\mathcal{S} (\nabla \times \mathbf{F}) \cdot \mathbf{n} \diff \mathcal{S} = \int_C \mathbf{F} \cdot \mathbf{t} \diff s. \] 
+\end{theorem}
+
+The surface integral over $\mathcal{S}$ is equivalent to the line integral over the bounding curve $C$. 
+
+
+\section{Ordinary Differential Equations}
+Linearity is an important property for differential equations, and we can phrase things in terms of \vocab{linear operators}. Recall that the derivative, the integral, and matrix multiplication (on a vector) are all linear operators. We can now define, formally, what a \vocab{linear differential equation} is. 
+
+\begin{definition}{}{}
+A differential equation is linear if it can be written in terms of operators, such that 
+\[ \mathcal{L}u = f, \] where $\mathcal L$ is a linear differential operator, and $f$ does not depend on $u$. If $f \equiv 0$, then our equation is \vocab{homogeneous}. Otherwise, it is \vocab{nonhomogeneous}. 
+\end{definition}
+
+While linearity at first may not seem powerful, it leads to important properties such as the following: 
+\begin{theorem}{Superposition Principle}{}
+If $\{u_1, u_2, \cdots, u_n \}$ all satisfy the linear equation $\mathcal{L}u = 0$, then any linear combination 
+\[ \sum_{k=0}^n c_ku_k \] also satisfies $\mathcal{L}u = 0$. 
+\end{theorem}
+\begin{proof}
+Since $\mathcal{L}$ is a linear operator, we have 
+\[ \CL \left ( \sum_{k=0}^n c_ku_k \right ) = \sum_{k=0}^n \CL(c_ku_k) = \sum_{k=0}^n c_k\CL u_k = c_1 \cdot 0 + c_2 \cdot 0 + \cdots + c_n \cdot 0 = 0, \] and the result follows. 
+\end{proof}
+
+With this, we can describe common forms of linear equations.
+
+The first order linear equation has two types: homogeneous and nonhomogeneous. In the homogeneous case, the equation reduces to a separable differential equation, which can be solved by a direct integration. However, consider the nonhomogeneous case. We have 
+\[ y'(t) + p(t)y(t) = f(t). \] Define the \vocab{integrating factor} 
+\[ m(t) = e^{\int p(t) \diff t}. \] Multiplying both sides of the equation by $m(t)$ will reduce to 
+\[ m(t)y(t) = \int m(t)f(t) \diff t + C \Longleftrightarrow y(t) = \frac{\int m(t)f(t) \diff t + C}{m(t)}. \] This is the general solution form of the nonhomogeneous linear equation. 
+
+The second order linear equation, is of the form 
+\[ ay''(t) + by'(t) + cy(t) = 0, \] where $a,b,c \in \RR$ are constant coefficients. Solutions will be of the form $y(t) = e^t$, and from this we can derive the \vocab{characteristic equation}, the polynomial 
+\[ ar^2 + br + c = 0. \] The solutions of the characteristic equation determine the solutions of the equation itself: 
+\begin{itemize}
+\item Pairs of distinct real roots: The equation thus has two linearly independent solutions $e^{r_1t}$ and $e^{r_2t}$, and by superposition our general solution is 
+\[ y(t) = c_1e^{r_1t} + c_2e^{r_2 t}. \] 
+\item One repeated real root: We have one solution, and can force linear independence by multiplying by a factor of $t$, thus the general solution is of the form 
+\[ y(t) = c_1e^{r_1 t} + c_2te^{r_2 t}. \] 
+\item Pairs of complex roots: We can reduce these to sines and cosines due to the complex nature of the roots. If $r_i = \alpha \pm \beta i$, then the general solution is of the form 
+\[ y(t) = c_1e^{\alpha t}\cos{\beta t} + c_2e^{\alpha t}\sin{\beta t}. \] 
+\end{itemize}
+
+Solving for a \vocab{particular solution} can be done provided that \vocab{initial conditions} are given for the problem, in which it is a simple linear system of equations to determine the values of $c_1$ and  $c_2$. 
+
+A \vocab{boundary value} problem is when the initial conditions are at different values of $t$, such as $y(0) = 4$ and $y(4) = \pi$. The location and values at the boundary can drastically change what sorts of particular solutions are obtained, but solving for these is once again a linear system of equations. 
+
+However, we must consider the case that the coefficients are nonconstant, that is, the equation is of the form 
+\[ a(x)y''(x) + b(x)y'(x) + c(x)y(x) = 0. \] Unfortunately, these are rather complex, and instead we limit our focus to equations known as \vocab{Cauchy-Euler equations}, which satisfy the form 
+\[ ax^2y''(x) + bxy'(x) + cy(x) = 0, \] where $a,b,c \in \RR$ and $a \neq 0$. 
+
+To approach these, we can once again guess the form of the solution, but this time, we use $y(x) = x^p$, such that the \vocab{Cauchy-Euler characteristic equation} is of the form 
+\[ ap^2 + (b-1)p + c = 0. \] We can once again consider the cases of the roots to determine the general solution: 
+\begin{itemize}
+\item Pairs of distinct real roots: Similar to the previous instance with constant coefficients, the general solution is of the form 
+\[ y(x) = x_1x^{p_1} + c_2x^{p_2}. \] 
+\item One repeated real root: Instead of multiplying by $x$, as this would change the degree (and thus, the implied root) of the solution, we instead multiply by $\log{x}$, resulting in a general solution of 
+\[ y(x) = c_1x^{p_1} + c_2x^{p_1}\log{x}. \] 
+\item In the case of complex roots, we have a similar form, except this time the arguments of sine and cosine are multiplied by $\log{x}$, resulting in a general solution of 
+\[ y(x) = c_1x^\alpha\cos{\beta \log{x}} + c_2x^\alpha \sin{\beta \log{x}}. \] 
+\end{itemize}
+
+Often times when working with boundary value problems, it is easier to write the general solutions in terms of hyperbolic trigonometric functions instead of $e^x$. Supposing we have a solution of the form 
+\[ y(x) = c_1e^{r_1 x} + c_2e^{-r_1 x}, \] then we can rewrite this in terms of hyperbolic sine and cosine to obtain 
+\[ y(x)  = c_3\cosh{r_1x} + c_4\sinh{r_1x}. \] This is best used when the characteristic equation is of the form 
+\[ r^2 - n = 0. \] 
+
