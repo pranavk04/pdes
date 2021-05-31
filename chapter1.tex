@@ -112,3 +112,62 @@ Often times when working with boundary value problems, it is easier to write the
 \[ y(x)  = c_3\cosh{r_1x} + c_4\sinh{r_1x}. \] This is best used when the characteristic equation is of the form 
 \[ r^2 - n = 0. \] 
 
+
+\section{First Order PDEs}
+
+We can motivate the study of partial differential equations by considering the familiar class of theorems known as \vocab{conservation laws}. Denote the density of some quantity as $u(x,t)$, and any variation of a state variable should be restricted to one dimension. For instance, imagine a cylindrical wire. $u$ should be the same across any point in a cross section of the wire.
+
+Let $\phi(x,t)$ denote the \vocab{flux} of $x$ at a time $t$. Then the amount of the quantity crossing the section at $x$ with time $t$ is equivalent to $A\phi(x,t)$ where $A$ is the cross sectional area of the section. If we let $f(x,t)$ be the rate at which the quantity enters the system (or is destroyed), called a \vocab{source} or \vocab{sink}, we have $f(x,t)A \diff x$ as the amount of quantity created in a small width of $\diff x$ at some time $t$. 
+
+Formulating this mathematically, for some interval $[a,b]$, we can write 
+\[ \frac{\diff}{\diff t} \int_a^b u(x,t)A \diff x = A\phi(a,t) - A\phi(b,t) + \int_a^b f(x,t)A\diff x. \] 
+
+Assuming sufficient smoothness of $f$ and $u$, we can rewrite this as 
+\[ \int_a^b u_t(x,t) + \phi_x(x,t) - f(x,t) \diff x = 0. \] Since $[a,b]$ is arbitrary, we can write this as a fundamental differential equation: 
+\begin{definition}{Fundamental Conservation Law}{}
+\[ u_t(x,t) + \phi_x(x,t) = f(x,t). \] 
+\end{definition}
+
+Many equations of this form are motivated by physical phenomena. Sometimes, $\phi$ and $f$ may depend explicitly on $u$, so that $f = f(u)$, for example. These are called \vocab{constitutive relations}. 
+
+We can now learn how to solve basic first order PDEs by the \vocab{method of characteristics}. 
+Consider a model where the flux is proportional to the density itself, or $\phi = cu$. If $c$ is a constant, this is called the \vocab{advection model}. 
+\begin{definition}{Advection Equation}{168G}
+From the above, we can write a conservation law of 
+\[ u_t + cu_x = 0. \] 
+\end{definition}
+
+We can see that a function $u(x,t) = F(x - ct)$ is a solution to this equation (which is evident by the chain rule). This is the \vocab{general solution} of the advection equation, and it has the form of a right travelling wave. Let's consider a general form of this problem.
+\begin{example}{Advection Initial Value}{}
+Suppose we have 
+\[ u_t + cu_x = 0, \] where $x \in \RR$, $t$ is positive, and $u(x,0) = u_0(x)$. Evidently, we have $u(x,t) = u_0(x - ct)$ as a solution. 
+\end{example}
+Physically, we can interpret this as the wave moving to the right at a speed of $c$. We can also think of this as the wave moving along the family of parallel straight lines $\xi = x - ct$, constant in space-time. These lines are called \vocab{characteristics}. 
+
+The solution behaves in a way such that the strength of the density, $u$, remains constant along any characteristic curve. 
+
+Let's consider a general version of this problem. 
+\begin{example}{General Advection Equation}{}
+Consider the general advection equation, which has the form 
+\[ u_t + cu_x + au = f(x,t). \] 
+Since the equation is propagating waves at speed $c$, we can transform it into a moving coordinate system. These are caled \vocab{characteristic coordinates}, defined as 
+\[ \xi = x - ct, \tau = t. \] We can interpret $\xi$ as a moving coordinate that travels with the wave. We can write $u(x,t)$ as $U(\xi, \tau) = u(\xi+c\tau, \tau)$. From the chain rule, we have 
+\[ u_t = U_\xi\xi_t + U_\tau\tau_t = -cU_\xi + U_\tau, \] and we have that 
+\[ u_x = U_\xi\xi_x + U_\tau\tau_x = U_\xi. \] We can rewrite the general form of the advection equation as 
+\[ U_\tau + aU = F(\xi, \tau). \] Notice that this is simply an ordinary differential equation in $\tau$! We have reduced the partial differential equation to an ordinary one, which we can solve by normal linear methods. 
+\end{example}
+
+Let's try another problem, with specific coefficients. 
+\begin{exercise}
+Find the general solution to 
+\[ u_t + 2u_x - u = t. \] 
+\end{exercise}
+\begin{sol}
+Let $\xi = x - 2t$, and let $\tau = t$. Recall the characteristic coordinates transform the equation to 
+\[ U_\tau - U = \tau. \] 	The integration factor is thus -1, and multiplying by $e^{-\tau}$ yields 
+\[ \frac{\partial}{\partial \tau}Ue^{-\tau} = \tau e^{-\tau}. \] Solving this yields 
+\[ Ue^{-\tau} = -(1 + \tau)e^{-\tau} + g(\xi), \] where $g$ is some arbitrary function. We can then transform back to the $x$ and $t$ variables to yield the general solution of 
+\[ \boxed{u(x,t) = -(1+t) + g(x - 2t)e^t}. \] 
+\end{sol}
+
+
