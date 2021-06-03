@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1622437562 "main.tex" "main.pdf" "main" 1622437565
-  "/Users/pranavk04/Library/texmf/tex/latex/pranavbook2.cls" 1622436730 5725 b1445f3519c8ad7dfe66ae601bb3dc22 ""
+["pdflatex"] 1622682560 "main.tex" "main.pdf" "main" 1622682562
+  "/Users/pranav/Library/texmf/tex/latex/pranavbook2.cls" 1622677609 5726 e866785c72d92661342855047c66354e ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc" 1598215928 3022 10a3376a8bb3e451b08862d68ba20e28 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_cb34qf.enc" 1598215928 3360 688870a129a51da65c9a3616e3c23032 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_mfadfl.enc" 1598215928 3039 65adf8ced4aca2c0eba59f265d934f09 ""
@@ -240,16 +240,17 @@
   "/usr/local/texlive/2021/texmf-dist/tex/latex/xpatch/xpatch.sty" 1585258158 8314 7803f78066c4f9d008405191a4b43073 ""
   "/usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf" 1616443989 39972 3d6bb4d9d719e93193fa020b58adf5d4 ""
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
-  "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1622328027 2724741 a8742726fffa612d828d2c939f7be824 ""
+  "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1622673974 2724735 9f5f44b2f444798940ebf47d850a050f ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "chapter1.tex" 1622437561 13506 808f40bd8f5ddd58f0434b0a25a17605 ""
-  "main.aux" 1622437564 3230 675e5ae2dd774208de2c6842505e888e "pdflatex"
-  "main.out" 1622437564 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1622396726 156 bd3d215b339f3516d3ab3d0ec002ebb0 ""
-  "main.toc" 1622437564 462 045327b43b479f57315e7c9f4f35000e "pdflatex"
+  "chapter1.tex" 1622678781 14348 81a46fbf447ac5cdf852b47f5eb048c0 ""
+  "chapter2.tex" 1622682559 3624 0b7c2bdaa8be8d63d17348d4f95c4d02 ""
+  "main.aux" 1622682562 5104 457a233bfe38cf3d7f909f9b89fc30e9 "pdflatex"
+  "main.out" 1622682561 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1622679083 172 f490881b4f1676b257e9da2af14981ec ""
+  "main.toc" 1622682562 807 6ba7c1b35c030fe32be7861d72e774e2 "pdflatex"
   (generated)
   "main.aux"
-  "main.log"
   "main.out"
   "main.pdf"
+  "main.log"
   "main.toc"

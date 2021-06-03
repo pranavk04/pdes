@@ -1,0 +1,55 @@
+\chapter{Fourier Series and the Heat Equation}
+
+\section{Linear Algebra}
+
+\subsection{The Eigenvalue Problem}
+Recall the \vocab{inner product} of a vector space, $\langle \mathbf{u}, \mathbf{v}\rangle$. We can consider this all in a differential equations context: 
+
+Consider $y(x)$ defined on $[\alpha,\beta]$ so that we have the vector space 
+\[ V = \{y: ay'' + by' + cy = 0 | a,b,c \in \RR \}, \] and where $a \neq 0$. 
+\begin{itemize}
+\item From superposition, all linear combinations of the $y(x)$ must also be in $V$, so $V$ is a vector space under addition and scalar multiplication of functions. 
+\item Define the inner product 
+\[ \langle u,v \rangle = \int_\alpha^\beta u(x)v(x) \diff x. \] The ``size'' of elements in $V$ is simply, for a function $u$, 
+\[ \left( \int_\alpha^\beta |u(x)|^2 \diff x  \right)^{\frac{1}{2}}. \] 
+\end{itemize}
+
+Oftentimes we use the above inner product as the inner product of $C([\alpha,\beta])$. When the inner product of two functions is equal to 0, they are orthogonal, much like normal vectors. 
+
+We can craft a basis for $V$ by choosing the two basis functions $y_1(x)$ and $y_2(x)$ such that the general solution to the differential equation is 
+\[ y(x) = c_1y_1(x) + c_2y_2(x). \] 
+
+
+We can now define the \vocab{eigenvalue problem}. 
+
+\begin{definition}{Eigenvalue Problem}{}
+The eigenvalue problem is, for some value $\lambda$, 
+\[ y'' + \lambda y = 0, \] with appropriate initial conditions. If we let $\CL u = \lambda u$, this is the familiar expression for the eigenvalue. 
+\end{definition}
+Assume $y'(0) = 0$, and $y(1) = 0$. 
+We have three cases, based on the relative value of $\lambda$, for the solution. 
+\begin{itemize}
+\item $\lambda = 0$: In this case, we get the trivial solution $y = 0$, as the general form is $y(x) = Ax + B$. In this case, $\lambda$ is not an eigenvalue because the eigenfunction is trivial. 
+\item $\lambda = -p^2 < 0$: We now have the eigenvalue problem of 
+\[ y''(x) - p^2y(x) = 0. \] The general solution of this is 
+\[ y(x) = A\cosh{px} + B\sinh{px}. \] Once again, we arrive at the trivial solution, meaning there are no negative eigenvalues. 
+\item $\lambda = p^2 > 0$: We now have 
+\[ y''(x) + p^2y(x) = 0, \] with our initial conditions. The general solution is, of course, 
+\[ y(x) = A\cos{px} + B\sin{px}, \] and we can quickly determine that $B = 0$. Since we want to avoid the trivial solution, we consider cases where $A\neq 0$, and we arrive at the sufficient condition that $\cos{p} = 0$. The eigenvalues are thus 
+\[ \lambda_n = p^2_n = \left[ (2n-1)\frac{\pi}{2} \right]^2, \] for $n \in \NN$. Thus our eigenfunctions are 
+\[ y_n(x) = A\cos{p_n x}, \] for $n \in \NN$. 
+\end{itemize}
+
+We can define problems similarly, except they need not have boundary value conditions like this one. As long as we are provided with sufficient initial conditions, we can consider the eigenvalue problem. We can find all eigenvalues and associated eigenfunctions (recall that if the eigenvalue produces the trivial solution, it is not an eigenvalue by definition). 
+
+If we have first order terms, such as 
+\[ y''(x) + y'(x) - \lambda y(x) = 0, \] then we consider $\lambda$ in cases of the discriminant (this mirrors the characteristic polynomial). 
+
+\subsection{Orthogonality}
+
+We can extend the concept of orthogonality to families of functions: 
+\begin{definition}{Orthogonal Family}{}
+A family of functions $\{f_n(x)\}^\infty_{n=1}$ for $x \in (a,b)$, none of which are identically zero, is an orthogonal family on $(a,b)$ if 
+\[ \langle f_i, f_j \rangle = 0 \] for $i \neq j$, where the inner product is standard. 
+\end{definition}
+

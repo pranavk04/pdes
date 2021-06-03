@@ -170,4 +170,20 @@ Let $\xi = x - 2t$, and let $\tau = t$. Recall the characteristic coordinates tr
 \[ \boxed{u(x,t) = -(1+t) + g(x - 2t)e^t}. \] 
 \end{sol}
 
+\newpage 
 
+If $c$ is not constant -- say, we have $c = c(x,t)$, then we can still solve these problems the same way, except now we use $\xi(x,t) = C$ where $\xi$ is the general solution to 
+\[ \frac{\diff x}{\diff t} = c(x,t). \] 
+
+\begin{example}{}{}
+Consider the following equation: 
+\[ u_t + 2tu_x = 0. \] 
+
+From this, we can see that we have an equation with $c(x,t) = 2t$, so then $\xi(x,t) = \int \diff x - \int 2t \diff t = x - t^2$. Then our characteristic coordinates are $\xi = x - t^2$, and $\tau = t$. 
+
+From the chain rule we have that 
+\[ u_t = U_\xi(-2t) + U_\tau, u_x = U_\xi. \] 
+
+Substituting this into the original equation gives $U_\tau = 0$, meaning we have a general solution of $U = g(\xi)$ where $g$ is some arbitrary function. Converting back to $x$-$t$ coordinates gives $g(x - t^2)$ as the solution. 
+
+\end{example}

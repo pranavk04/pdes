@@ -3,4 +3,8 @@
 \contentsline {section}{\numberline {1.2}Vector Calculus}{3}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Ordinary Differential Equations}{4}{section.1.3}%
 \contentsline {section}{\numberline {1.4}First Order PDEs}{7}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Fourier Series and the Heat Equation}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Linear Algebra}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The Eigenvalue Problem}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Orthogonality}{11}{subsection.2.1.2}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
